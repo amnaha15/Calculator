@@ -1,5 +1,5 @@
 /* 
- * 
+ * bye is to exit add/subtract/multiply
  * 
  */
 import java.util.Scanner;
@@ -20,15 +20,15 @@ public class Runner {
 
 		if (command.equals("add")) {
 			while (loop == true) {
-				input = user.nextLine();
-				if (user.nextLine().equals("bye")) {
-					loop = false; // ERROR IN ENDING LOOP
-				}
-				else {
 				System.out.println("What would you like to add?");
-				x = Double.parseDouble(input); 
-				answer = Basic.add(answer, x);
-				System.out.println(answer);
+				input = user.next();
+				if (input.equals("bye")) {
+					loop = false; 
+					System.out.println("Your answer is " + answer);
+				} else {
+					x = Double.parseDouble(input);
+					answer = Basic.add(answer, x);
+					System.out.println("= " + answer);
 				}
 			}
 		}
@@ -39,11 +39,14 @@ public class Runner {
 			System.out.println(answer);
 			while (loop == true) {
 				System.out.println("What would you like to subtract?");
-				x = user.nextDouble();
-				answer = Basic.subtract(answer, x);
-				System.out.println(answer);
-				if (user.nextLine().equals("bye")) {
-					loop = false; // ERROR
+				input = user.next();
+				if (input.equals("bye")) {
+					loop = false;
+					System.out.println("Your answer is " + answer);
+				} else {
+					x = Double.parseDouble(input);
+					answer = Basic.subtract(answer, x);
+					System.out.println("= " + answer);
 				}
 			}
 		}
@@ -51,25 +54,32 @@ public class Runner {
 			answer = 1;
 			while (loop == true) {
 				System.out.println("What would you like to multiply?");
-				x = user.nextDouble();
+				input = user.next();
+				if(input.equals("bye")){
+					loop = false; 
+					System.out.println("You answer is " + answer);
+				}
+				else{
+				x = Double.parseDouble(input);
 				answer = Basic.multiply(answer, x);
-				System.out.println(answer);
-				if (user.nextLine().equals("bye")) {
-					loop = false; // ERROR
+				System.out.println("= " + answer);
 				}
 			}
 		}
 		if (command.equals("divide")) {
 			System.out.println("What would you like to divide?");
 			answer = user.nextDouble();
-			System.out.println(answer);
 			while (loop == true) {
 				System.out.println("What would you like to divide?");
-				x = user.nextDouble();
+				input = user.next();
+				if(input.equals("bye")){
+					loop = false; 
+					System.out.println("You answer is " + answer);
+				}
+				else{
+				x = Double.parseDouble(input);
 				answer = Basic.divide(answer, x);
 				System.out.println(answer);
-				if (user.nextLine().equals("bye")) {
-					loop = false; // ERROR
 				}
 			}
 		}
