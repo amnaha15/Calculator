@@ -1,5 +1,6 @@
 
 public class Basic {
+	
 	public static double add (double answer, double x){
 		
 		answer = answer + x;

@@ -1,7 +1,6 @@
-/* 
- * bye is to exit add/subtract/multiply
- * 
- */
+
+ 
+ 
 import java.util.Scanner;
 
 public class Runner {
@@ -27,9 +26,11 @@ public class Runner {
 		
 		
 		/*
-		 * Carries out basic arithmetic (including Basic and Math classes
+		 * Carries out basic arithmetic (including Basic and Math classes)
 		 *  (+ - * / ^ %) 
 		 */
+
+		
 		while (loop == true) {
 			command = user.next();
 
@@ -66,3 +67,4 @@ public class Runner {
 		
 	}
 }
+
