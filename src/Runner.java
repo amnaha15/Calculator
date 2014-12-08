@@ -1,6 +1,3 @@
-
- 
- 
 import java.util.Scanner;
 
 public class Runner {
@@ -14,67 +11,96 @@ public class Runner {
 		double x, answer;
 
 		System.out.println("Here is how the basic calculator works:");
-		System.out.println("Please enter only integer or double values,");
-		System.out.println("You will need to type a number followed enter");
-		System.out
-				.println("Then type your operation (+ - / *) followed by enter");
-		System.out.println("To finish you will need to type '='");
-		System.out.println("Ready? Let's go!");
+		System.out.println("Please enter two numbers separated by a mathematical operator");
 
-		System.out.println("Basic/calc/stats?")
-		
-		command = user.nextLine();
-		
-		
-		/*
-		 * Carries out basic arithmetic (including Basic and Math classes)
-		 *  (+ - * / ^ %) 
-		 */
-		if(command.equals("basic")){
-		answer = user.nextDouble();
 
-			while (loop == true) {
-				command = user.next();
-	
-				if (command.equals("=")) {
-					System.out.println("Your answer is " + answer);
+		while (loop == true) {
+
+			command = user.nextLine();
+			
+			if(command.contains("/")) {
+				
+				// test for division character
+				String[] arr = command.split("/");
+				if(arr.length==2) {
+					answer = Basic.divide(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]));
+					System.out.println(answer);
 				}
-	
-				x = user.nextDouble();
-	
-				if (command.equals("+")) {
-					answer = Basic.add(answer, x);
-					System.out.println("= " + answer);
-				} else if (command.equals("-")) {
-					answer = Basic.subtract(answer, x);
-					System.out.println("= " + answer);
-				} else if (command.equals("*")) {
-					answer = Basic.multiply(answer, x);
-					System.out.println("= " + answer);
-				} else if (command.equals("/")) {
-					answer = Basic.divide(answer, x);
-					System.out.println(answer);
-				} else if (command.equals("^")) {
-					answer = Math.pow(answer , x);
-					System.out.println(answer);
-				}	
+
 			}
-		}
-		
-		
-		else if(command.equals("calc")){
+
+			else if(command.contains("*")) {
+				
+				// test for multiplication character
+				String[] arr = command.split("\\*");
+				if(arr.length==2) {
+					answer = Basic.multiply(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]));
+					System.out.println(answer);
+				}
+
+			}
 			
+			else if(command.contains("+")) {
+				
+				// test for addition character
+				String[] arr = command.split("\\+");
+
+				System.out.println("monica");
+
+				if(arr.length==2) {
+					answer = Basic.add(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]));
+					System.out.println(answer);
+				}
+
+			}
 			
-		}
-		
-		else if(command.equals("stats")){
+			else if(command.contains("-")) {
+				
+				// test for subtraction character
+				String[] arr = command.split("-");
+				if(arr.length==2) {
+					answer = Basic.subtract(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]));
+					System.out.println(answer);
+				}
+
+			}
 			
+			else {
+				System.out.println("Exiting Program");
+				System.exit(0);
+			}
+
 		
 		}
-		
-		
-		
-		
+		/**
+		while (loop == true) {
+			command = user.next();
+
+			if (command.equals("=")) {
+				System.out.println("Your answer is " + answer);
+			}
+
+			x = user.nextDouble();
+
+
+			if (command.equals("+")) {
+				answer = Basic.add(answer, x);
+				System.out.println("= " + answer);
+			} else if (command.equals("-")) {
+				answer = Basic.subtract(answer, x);
+				System.out.println("= " + answer);
+			} else if (command.equals("*")) {
+				answer = Basic.multiply(answer, x);
+				System.out.println("= " + answer);
+			} else if (command.equals("/")) {
+				answer = Basic.divide(answer, x);
+				System.out.println("= " + answer);
+			} else if (command.equals("^")) {
+				answer = Math.pow(answer , x);
+				System.out.println("= " + answer);
+			}	
+		}
+		**/
+
 	}
 }
-
